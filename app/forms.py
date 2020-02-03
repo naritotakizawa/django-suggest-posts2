@@ -6,7 +6,7 @@ from .widgets import SuggestWidget
 
 class PostCreateForm(forms.ModelForm):
     relation_posts = forms.ModelChoiceField(
-        label='関連記事', queryset=Post.objects,
+        label='関連記事', queryset=Post.objects, required=False,
         widget=SuggestWidget(attrs={'data-url': reverse_lazy('app:api_posts_get')})
     )
 
